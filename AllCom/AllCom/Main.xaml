@@ -12,13 +12,6 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        
-                        <ViewCell.ContextActions>
-                            <MenuItem Text="Edit" Clicked="Edit" CommandParameter="{Binding .}"/>
-                            <MenuItem Text="Delete" Clicked="Delete" CommandParameter="{Binding .}"/>
-                        </ViewCell.ContextActions>
-                       
-
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="80"></ColumnDefinition>
@@ -37,6 +30,10 @@
                                 </StackLayout>
                             </Grid>
                         </Grid>-->
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Edit" Clicked="Edit" CommandParameter="{Binding .}"/>
+                            <MenuItem Text="Delete" Clicked="Delete" CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
