@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllCom.CategoryInfo"
+             NavigationPage.HasBackButton="False">
+    <StackLayout>
+        <Grid BackgroundColor="#414141" HeightRequest="60" MinimumHeightRequest="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="80">></ColumnDefinition>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Image Source="bac.png" Margin="15"></Image>
+                <Button Clicked="Back" BorderColor="Transparent" BackgroundColor="Transparent"></Button>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Image Source="edi.png" Margin="15"></Image>
+                <Button Clicked="Edit" BorderColor="Transparent" BackgroundColor="Transparent"></Button>
+            </Grid>
+            <Grid Grid.Column="3">
+                <Image Source="del.png" Margin="15"></Image>
+                <Button Clicked="Delete" BorderColor="Transparent" BackgroundColor="Transparent"></Button>
+            </Grid>
+        </Grid>
+        <StackLayout Margin="30">
+            <Label x:Name="name" FontSize="Medium"></Label>
+            <Frame OutlineColor="#8492A6" Margin="5">
+                <Grid>
+                    <ScrollView>
+                        <Label LineBreakMode="WordWrap" x:Name="content" Margin="5"></Label>
+                    </ScrollView>
+                    
+                </Grid>
+            </Frame>
+            
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

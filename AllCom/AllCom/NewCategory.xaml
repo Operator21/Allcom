@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllCom.NewCategory"
+             NavigationPage.HasBackButton="False">
+    <StackLayout>
+        <Grid BackgroundColor="#414141" HeightRequest="60" Margin="0">
+            <Grid Grid.Column="0">
+                <Image Source="bac.png" Margin="15"></Image>
+                <Button Clicked="Back" BorderColor="Transparent" BackgroundColor="Transparent"></Button>
+            </Grid>
+        </Grid>
+        <Entry x:Name="name" Placeholder="Category name"></Entry>
+        <Editor x:Name="content" HeightRequest="200"></Editor>
+        <Button Text="Save" Clicked="Save"></Button>
+    </StackLayout>
+</ContentPage>

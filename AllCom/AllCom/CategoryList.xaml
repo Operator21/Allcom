@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllCom.CategoryList"
+             NavigationPage.HasBackButton="False">
+    <StackLayout Spacing="0" BackgroundColor="White">
+        <Grid BackgroundColor="#414141" HeightRequest="60" MinimumHeightRequest="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="80">></ColumnDefinition>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Image Source="bac.png" Margin="15"></Image>
+                <Button Clicked="Back" BorderColor="Transparent" BackgroundColor="Transparent"></Button>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Image Source="edi.png" Margin="15"></Image>
+                <Button Clicked="Edit" BorderColor="Transparent" BackgroundColor="Transparent"></Button>
+            </Grid>
+            <Grid Grid.Column="3">
+                <Image Source="del.png" Margin="15"></Image>
+                <Button Clicked="Delete" BorderColor="Transparent" BackgroundColor="Transparent"></Button>
+            </Grid>
+        </Grid>
+
+        <StackLayout Orientation="Horizontal" HeightRequest="150" BackgroundColor="#C7C7C7" Margin="0">
+            <Image x:Name="image" Margin="25" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+            <Label x:Name="name" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#47525E" FontSize="Large"/>
+        </StackLayout>
+        
+        <ListView x:Name="category_list" BackgroundColor="White" ItemTapped="Info">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem CommandParameter="{Binding .}" Text="Edit" Clicked="Edit_c"/>
+                            <MenuItem CommandParameter="{Binding .}" Text="Delete" Clicked="Delete_c"/>
+                        </ViewCell.ContextActions>
+                        <StackLayout Orientation="Vertical" Padding="1" BackgroundColor="#8492A6">
+                            <StackLayout BackgroundColor="White">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="Medium" TextColor="#47525E" Margin="15"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid MinimumHeightRequest="30" HeightRequest="30" Margin="0,0,0,20">
+            <Grid>
+                <Image Source="note.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="1" Aspect="AspectFit"></Image>
+                <Button Clicked="New" BorderColor="Transparent" BackgroundColor="Transparent" Opacity="0"></Button>
+            </Grid>
+        </Grid>
+    </StackLayout>
+</ContentPage>

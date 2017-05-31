@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllCom.Main"
+             NavigationPage.HasBackButton="False">
+    <StackLayout Spacing="0" BackgroundColor="White">
+
+        <Grid BackgroundColor="#414141" HeightRequest="100">
+            <Label Text="AllCom" TextColor="White" FontSize="Large" VerticalOptions="Center" Margin="5,0,0,0"></Label>
+        </Grid>
+        <ListView x:Name="game_list" Margin="15" BackgroundColor="White" ItemTapped="ToCategories">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Edit" Clicked="Edit" CommandParameter="{Binding .}"/>
+                            <MenuItem Text="Delete" Clicked="Delete" CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
+                       
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding URL}" Grid.Column="0" Margin="10" WidthRequest="70" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+                            <Label Text="{Binding Name}" Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                        </Grid>
+                        <!--<Grid MinimumHeightRequest="150" Padding="1" BackgroundColor="#8492A6" Margin="0,15,0,0">
+                            <Grid BackgroundColor="White" MinimumHeightRequest="150">
+                                <StackLayout Orientation="Horizontal">
+                                    <Grid Margin="25" WidthRequest="100" HeightRequest="100">
+                                        
+                                    </Grid>
+                                    <Label Text="{Binding Name}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </StackLayout>
+                            </Grid>
+                        </Grid>-->
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid MinimumHeightRequest="30" HeightRequest="30" Margin="0,0,0,20">
+            <Grid>
+                <Image Source="game.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="1" Aspect="AspectFit"></Image>
+                <Button Clicked="New" BorderColor="Transparent" BackgroundColor="Transparent" Opacity="0"></Button>
+            </Grid>
+        </Grid>
+    </StackLayout>
+</ContentPage>

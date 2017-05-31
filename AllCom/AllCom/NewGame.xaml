@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AllCom.NewGame"
+             NavigationPage.HasBackButton="False">
+    <StackLayout>
+        <Grid BackgroundColor="#414141" HeightRequest="60" Margin="0">
+            <Grid Grid.Column="0">
+                <Image Source="bac.png" Margin="15"></Image>
+                <Button Clicked="Back" BorderColor="Transparent" BackgroundColor="Transparent"></Button>
+            </Grid>
+        </Grid>
+        <Entry x:Name="name" Placeholder="Game name"></Entry>
+        <Entry x:Name="url" Placeholder="Image URL" TextChanged="url_TextChanged"></Entry>
+        <Image IsVisible="False" x:Name="preview" WidthRequest="400" HeightRequest="400" Margin="5" BackgroundColor="Gray" HorizontalOptions="CenterAndExpand" Aspect="AspectFill"></Image>
+        <Button Text="Save" Clicked="Save"></Button>
+    </StackLayout>
+</ContentPage>
