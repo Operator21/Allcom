@@ -17,7 +17,7 @@ namespace AllCom
         public Main()
         {
             InitializeComponent();
-            App.Database.DeleteTable();
+            
             /*for (int x = 0; x < 25; x++)
             {
                 Game g = new Game();
