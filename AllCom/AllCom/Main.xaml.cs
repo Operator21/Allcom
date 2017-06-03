@@ -25,7 +25,7 @@ namespace AllCom
                 g.URL = "unk.jpg";
                 App.Database.SaveItemAsync(g);
             }*/
-            //NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
             /*games = App.Database.GetItemsAsync().Result;
             foreach(Game ga in games)
             {

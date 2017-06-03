@@ -52,7 +52,7 @@ namespace AllCom
         }
         private void Back(Object sender, EventArgs e)
         {
-            Navigation.PushAsync(new CategoryList(game), false);
+            Navigation.PushAsync(new Main(), false);
         }
         private void Setup()
         {
