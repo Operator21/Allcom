@@ -115,6 +115,9 @@
     <Content Include="edi.png" />
     <Content Include="error.jpg" />
     <Content Include="game.png" />
+    <Content Include="net.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="note.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

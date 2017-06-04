@@ -7,7 +7,12 @@
 
         <Grid BackgroundColor="#414141" HeightRequest="100">
             <Label Text="AllCom" TextColor="White" FontSize="Large" VerticalOptions="Center" Margin="5,0,0,0"></Label>
+            <Grid x:Name="net" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" Margin="10">
+                <Image Source="net.png" WidthRequest="30" HeightRequest="30" ></Image>
+                <Button Clicked="Button_Clicked" BorderColor="Transparent" BackgroundColor="Transparent" Opacity="0"></Button>
+            </Grid>
         </Grid>
+        <Label x:Name="game_error" HorizontalOptions="CenterAndExpand" Margin="10">No games in database.</Label>
         <ListView x:Name="game_list" Margin="15" BackgroundColor="White" ItemTapped="ToCategories">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -17,7 +22,7 @@
                                 <ColumnDefinition Width="80"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Image Source="{Binding URL}" Grid.Column="0" Margin="10" WidthRequest="70" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+                            <Image Source="{Binding URL}" Grid.Column="0" Margin="10" WidthRequest="70" HeightRequest="70" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></Image>
                             <Label Text="{Binding Name}" Grid.Column="1" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
                         </Grid>
                         <!--<Grid MinimumHeightRequest="150" Padding="1" BackgroundColor="#8492A6" Margin="0,15,0,0">

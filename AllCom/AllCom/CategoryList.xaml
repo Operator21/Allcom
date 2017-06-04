@@ -26,7 +26,7 @@
         </Grid>
 
         <StackLayout Orientation="Horizontal" HeightRequest="150" BackgroundColor="#C7C7C7" Margin="0">
-            <Image x:Name="image" Margin="25" WidthRequest="100" HeightRequest="100" Aspect="AspectFill"/>
+            <Image x:Name="image" Margin="25" WidthRequest="100" HeightRequest="100" Aspect="AspectFit"/>
             <Label x:Name="name" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#47525E" FontSize="Large"/>
         </StackLayout>
         

@@ -17,7 +17,8 @@ namespace AllCom
         public Main()
         {
             InitializeComponent();
-            
+            net.IsVisible = false;
+            game_error.IsVisible = false;
             /*for (int x = 0; x < 25; x++)
             {
                 Game g = new Game();
@@ -26,7 +27,7 @@ namespace AllCom
                 App.Database.SaveItemAsync(g);
             }*/
             NavigationPage.SetHasNavigationBar(this, false);
-            /*games = App.Database.GetItemsAsync().Result;
+            /*
             foreach(Game ga in games)
             {
                 Debug.WriteLine(ga.Name);
@@ -45,6 +46,14 @@ namespace AllCom
                 App.Database.SaveItemAsync(item);
             }*/
             games = App.Database.GetItemsAsync().Result;
+            if(games.Count < 1)
+            {
+                game_error.IsVisible = true;
+            }
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                net.IsVisible = true;
+            }
             game_list.ItemsSource = games;
         }
         private void ToCategories(object sender, ItemTappedEventArgs e)
@@ -67,6 +76,9 @@ namespace AllCom
             Navigation.PushAsync(new Main(), false);
         }
 
-
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Error","You are not connected to internet. Some pictures might not load.","Ok");
+        }
     }
 }

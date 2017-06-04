@@ -13,7 +13,6 @@ namespace AllCom
         public TodoItemDatabase(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
-            database.CreateTableAsync<Test>().Wait();
             database.CreateTableAsync<Game>().Wait();
             database.CreateTableAsync<Category>().Wait();
         }
@@ -25,27 +24,12 @@ namespace AllCom
         {
             return database.Table<Game>().ToListAsync();
         }
-        public Task<List<Test>> GetTestAsync()
-        {
-            return database.Table<Test>().ToListAsync();
-        }
         public Task<int> DeleteTable()
         {
             return database.DropTableAsync<Game>();
         }
 
         public Task<int> SaveItemAsync(Game item)
-        {
-            if (item.ID != 0)
-            {
-                return database.UpdateAsync(item);
-            }
-            else
-            {
-                return database.InsertAsync(item);
-            }
-        }
-        public Task<int> SaveItemAsync(Test item)
         {
             if (item.ID != 0)
             {
