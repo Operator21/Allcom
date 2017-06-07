@@ -31,6 +31,10 @@ namespace AllCom
             name.Text = g.Name;   
             c = App.Database.GetCategories(g.ID).Result;
             category_list.ItemsSource = c;
+            if(c.Count < 1)
+            {
+                game_error.IsVisible = true;
+            }
             //Title.Text = "Back";
         }
         private void New(Object sender, EventArgs e)
@@ -49,10 +53,14 @@ namespace AllCom
         {
             Navigation.PushAsync(new NewGame(game), false);
         }
-        private void Delete(Object sender, EventArgs e)
+        private async void Delete(Object sender, EventArgs e)
         {
-            App.Database.DeleteItemAsync(game);
-            Navigation.PushAsync(new Main(), false);
+            var result = await DisplayAlert("Delete", "Are you sure ?", "Yes", "Cancel");
+            if (result)
+            {
+                await App.Database.DeleteItemAsync(game);
+                await Navigation.PushAsync(new Main(), false);
+            }
         }
         private void Edit_c(object sender, EventArgs e)
         {
@@ -61,11 +69,15 @@ namespace AllCom
 
 
         }
-        private void Delete_c(object sender, EventArgs e)
+        private async void Delete_c(object sender, EventArgs e)
         {
-            var item = ((MenuItem)sender).CommandParameter as Category;
-            App.Database.DeleteItemAsync(item);
-            Navigation.PushAsync(new CategoryList(game), false);
+            var result = await DisplayAlert("Delete", "Are you sure ?", "Yes", "Cancel");
+            if (result)
+            {
+                var item = ((MenuItem)sender).CommandParameter as Category;
+                await App.Database.DeleteItemAsync(item);
+                await Navigation.PushAsync(new CategoryList(game), false);
+            }
 
         }
 

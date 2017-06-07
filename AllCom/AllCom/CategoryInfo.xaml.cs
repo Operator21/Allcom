@@ -26,10 +26,14 @@ namespace AllCom
         {
             Navigation.PushAsync(new NewCategory(cat,game), false);
         }
-        private void Delete(object sender, EventArgs e)
+        private async void Delete(object sender, EventArgs e)
         {
-            App.Database.DeleteItemAsync(cat);
-            Navigation.PushAsync(new CategoryList(game), false);
+            var result = await DisplayAlert("Delete", "Are you sure ?", "Yes", "Cancel");
+            if (result)
+            {
+                await App.Database.DeleteItemAsync(cat);
+                await Navigation.PushAsync(new CategoryList(game), false);
+            }
         }
         private void Back(Object sender, EventArgs e)
         {

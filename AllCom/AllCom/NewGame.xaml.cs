@@ -37,7 +37,14 @@ namespace AllCom
             {
                 item.ID = game.ID;
             }
-            item.Name = name.Text;
+            if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrEmpty(name.Text))
+            {
+                item.Name = "New game " + DateTime.Now.ToString("hmmss");
+            }
+            else
+            {
+                item.Name = name.Text;
+            }
             if(string.IsNullOrWhiteSpace(url.Text) || string.IsNullOrEmpty(url.Text))
             {
                 item.URL = "unk.png";

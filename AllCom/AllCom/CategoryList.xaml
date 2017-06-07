@@ -29,7 +29,7 @@
             <Image x:Name="image" Margin="25" WidthRequest="100" HeightRequest="100" Aspect="AspectFit"/>
             <Label x:Name="name" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#47525E" FontSize="Large"/>
         </StackLayout>
-        
+        <Label x:Name="game_error" HorizontalOptions="CenterAndExpand" Margin="10" IsVisible="False">No notes in database.</Label>
         <ListView x:Name="category_list" BackgroundColor="White" ItemTapped="Info">
             <ListView.ItemTemplate>
                 <DataTemplate>

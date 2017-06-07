@@ -69,11 +69,16 @@ namespace AllCom
             var item = ((MenuItem)sender).CommandParameter as Game;
             Navigation.PushAsync(new NewGame(item), false);
         }
-        private void Delete(Object sender, EventArgs e)
+        private async void Delete(Object sender, EventArgs e)
         {
-            var item = ((MenuItem)sender).CommandParameter as Game;
-            App.Database.DeleteItemAsync(item);
-            Navigation.PushAsync(new Main(), false);
+            var result = await DisplayAlert("Delete", "Are you sure ?", "Yes", "Cancel");
+            if (result)
+            {
+                var item = ((MenuItem)sender).CommandParameter as Game;
+                await App.Database.DeleteItemAsync(item);
+                await Navigation.PushAsync(new Main(), false);
+            }
+            
         }
 
         private void Button_Clicked(object sender, EventArgs e)

@@ -39,7 +39,14 @@ namespace AllCom
                 item.ID = cat.ID;
             }
             item.GameID = game_id;
-            item.Name = name.Text;
+            if (string.IsNullOrWhiteSpace(name.Text) || string.IsNullOrEmpty(name.Text))
+            {
+                item.Name = "New note " + DateTime.Now.ToString("hmmss");
+            }
+            else
+            {
+                item.Name = name.Text;
+            }
             item.Text = content.Text;
 
             App.Database.SaveItemAsync(item);

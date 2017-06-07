@@ -28,7 +28,7 @@
             <Label x:Name="name" FontSize="Medium"></Label>
             <Frame OutlineColor="#8492A6" Margin="5">
                 <Grid>
-                    <ScrollView>
+                    <ScrollView Margin="5">
                         <Label LineBreakMode="WordWrap" x:Name="content" Margin="5"></Label>
                     </ScrollView>
                     
